@@ -1,5 +1,5 @@
 <?php
-include "../config/config.php";
+include "../config.php";
 $projects = mysqli_query($conn, "SELECT * FROM projects");
 while ($p = mysqli_fetch_assoc($projects)) {
     if ($p['utilized'] > $p['budget'] * 0.8 && $p['progress'] < 50) {
