@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../config/config.php";
+include "../config.php";
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -10,9 +10,9 @@ if (isset($_POST['login'])) {
         $data = mysqli_fetch_assoc($result);
         $_SESSION['role'] = $data['role'];
         $_SESSION['user_id'] = $data['id'];
-        if ($data['role'] == 'admin') header("location: ../admin/admin-dashboard.php");
+        if ($data['role'] == 'admin') header("location: ../admin-dashboard.php");
         else if ($data['role'] == 'district') header("location: dashboard.php");
-        else if ($data['role'] == 'auditor') header("location: ../auditor/auditor-dashboard.php");
+        else if ($data['role'] == 'auditor') header("location: ../auditor-dashboard.php");
     } else { $error = "Invalid Credentials"; }
 }
 ?>
