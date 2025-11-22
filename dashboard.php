@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "../config/config.php";
+include "../config.php";
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'district') { header("location: login.php"); }
 $projects = mysqli_query($conn, "SELECT * FROM projects WHERE district_id = 1");
 ?>
